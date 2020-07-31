@@ -1,0 +1,17 @@
+{
+  "name": "@xarples/vue-framework-examples-minimal-v2",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "build:dev": "vue-framework build",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@xarples/vue-framework": "0.0.0",
+    "express": "^4.17.1",
+    "vue": "^3.0.0-rc.5"
+  }
+}

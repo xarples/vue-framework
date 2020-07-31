@@ -1,0 +1,23 @@
+{
+  "name": "@xarples/vue-framework",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "bin": {
+    "vue-framework": "bin/vue-framework.js"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "@xarples/vue-framework-core": "0.0.0",
+    "@xarples/vue-framework-cli": "0.0.0"
+  },
+  "peerDependencies": {}
+}

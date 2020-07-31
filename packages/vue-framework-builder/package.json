@@ -1,0 +1,38 @@
+{
+  "name": "@xarples/vue-framework-builder",
+  "version": "0.0.0",
+  "author": "xarples",
+  "dependencies": {
+    "@babel/core": "^7.10.5",
+    "@vue/compiler-sfc": "^3.0.0-rc.1",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^3.6.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "null-loader": "^4.0.0",
+    "vue-loader": "^16.0.0-beta.4",
+    "webpack": "^4.43.0",
+    "webpack-merge": "^5.0.9",
+    "webpack-node-externals": "^2.5.0"
+  },
+  "devDependencies": {
+    "@babel/types": "^7.10.5",
+    "@types/node": "^10.17.27",
+    "@types/webpack": "^4.41.21",
+    "@types/webpack-node-externals": "^1.7.1",
+    "globby": "^10.0.2",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [],
+  "homepage": "https://github.com/xarples/vue-framework",
+  "keywords": [],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "repository": "xarples/vue-framework",
+  "scripts": {
+    "build": "tsc"
+  }
+}

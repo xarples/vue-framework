@@ -1,0 +1,23 @@
+{
+  "name": "@xarples/vue-framework-generator",
+  "version": "0.0.0",
+  "author": "xarples",
+  "main": "dist/index.js",
+  "dependencies": {
+    "@xarples/vue-framework-core": "0.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^3.9.7"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [],
+  "homepage": "https://github.com/xarples/vue-framework",
+  "keywords": [],
+  "license": "MIT",
+  "repository": "xarples/vue-framework",
+  "scripts": {
+    "build": "tsc"
+  }
+}
