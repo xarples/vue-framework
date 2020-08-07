@@ -5,6 +5,7 @@ import { VueLoaderPlugin } from 'vue-loader'
 export const isProd = process.env.NODE_ENV === 'production'
 
 const workDirPath = process.cwd()
+const rootNodeModules = path.resolve(workDirPath, '..', '..', 'node_modules')
 const vueFrameworkCoreNodeModulesPath = path.resolve(
   __dirname,
   '..',
@@ -20,7 +21,7 @@ const config: Configuration = {
   mode: isProd ? 'production' : 'development',
   resolve: {
     extensions: ['.js', '.vue', '.json'],
-    // modules: ['node_modules'],
+    modules: ['node_modules', rootNodeModules],
   },
   optimization: {
     usedExports: true,

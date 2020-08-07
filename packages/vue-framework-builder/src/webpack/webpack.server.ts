@@ -39,6 +39,9 @@ const config = merge(commonConfig, {
     ],
   },
   externals: [
+    {
+      vue: 'vue',
+    },
     nodeExternals(),
     // nodeExternals({
     //   // modulesDir: vueFrameworkCoreNodeModulesPath,

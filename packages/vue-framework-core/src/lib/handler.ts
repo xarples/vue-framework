@@ -1,5 +1,5 @@
 import path from 'path'
-import * as serverRender from '@vue/server-renderer'
+import { renderToString } from '@vue/server-renderer'
 import serveStatic from 'serve-static'
 import renderBaseHTML from './renderBaseHTML'
 
@@ -19,7 +19,7 @@ export default function handler() {
     }
 
     const vueApp = await createApp()
-    const content = await serverRender.renderToString(vueApp)
+    const content = await renderToString(vueApp)
     const html = await renderBaseHTML(content)
 
     res.end(html)
