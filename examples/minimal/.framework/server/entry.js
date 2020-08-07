@@ -1,7 +1,7 @@
-import { createApp } from 'vue'
+import { createSSRApp } from 'vue'
 
 import App from '../../src/app.vue'
 
-export default function () {
-  return createApp(App)
+export function createApp() {
+  return createSSRApp(App)
 }

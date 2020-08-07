@@ -5,7 +5,7 @@
     "module": "commonjs",
     "outDir": "dist",
     "rootDir": "src",
-    "strict": true,
+    "strict": false,
     "target": "ESNext",
     "esModuleInterop": true,
     "skipDefaultLibCheck": true

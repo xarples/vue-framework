@@ -39,10 +39,12 @@ const config = merge(commonConfig, {
     ],
   },
   externals: [
-    nodeExternals({
-      // modulesDir: vueFrameworkCoreNodeModulesPath,
-      whitelist: [/\.css$/],
-    }),
+    nodeExternals(),
+    // nodeExternals({
+    //   // modulesDir: vueFrameworkCoreNodeModulesPath,
+    //   // @ts-ignore
+    //   allowlist: [/\.css$/],
+    // }),
   ],
   plugins: [
     new webpack.DefinePlugin({
