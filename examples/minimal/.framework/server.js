@@ -3,6 +3,12 @@ module.exports =
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
+/******/ 	// object to store loaded chunks
+/******/ 	// "0" means "already loaded"
+/******/ 	var installedChunks = {
+/******/ 		"server": 0
+/******/ 	};
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/
@@ -27,6 +33,26 @@ module.exports =
 /******/ 		return module.exports;
 /******/ 	}
 /******/
+/******/ 	// This file contains only the entry chunk.
+/******/ 	// The chunk loading function for additional chunks
+/******/ 	__webpack_require__.e = function requireEnsure(chunkId) {
+/******/ 		var promises = [];
+/******/
+/******/
+/******/ 		// require() chunk loading for javascript
+/******/
+/******/ 		// "0" is the signal for "already loaded"
+/******/ 		if(installedChunks[chunkId] !== 0) {
+/******/ 			var chunk = require("./" + ({}[chunkId]||chunkId) + ".js");
+/******/ 			var moreModules = chunk.modules, chunkIds = chunk.ids;
+/******/ 			for(var moduleId in moreModules) {
+/******/ 				modules[moduleId] = moreModules[moduleId];
+/******/ 			}
+/******/ 			for(var i = 0; i < chunkIds.length; i++)
+/******/ 				installedChunks[chunkIds[i]] = 0;
+/******/ 		}
+/******/ 		return Promise.all(promises);
+/******/ 	};
 /******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
@@ -78,11 +104,18 @@ module.exports =
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "/.framework/";
+/******/
+/******/ 	// uncaught error handler for webpack runtime
+/******/ 	__webpack_require__.oe = function(err) {
+/******/ 		process.nextTick(function() {
+/******/ 			throw err; // catch this error by using import().catch()
+/******/ 		});
+/******/ 	};
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./.framework/server/entry.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./.framework/entry.server.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -148,9 +181,9 @@ module.exports =
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 
 function render(_ctx, _cache) {
-  const _component_counter = Object(vue__WEBPACK_IMPORTED_MODULE_0__["resolveComponent"])("counter");
+  const _component_router_view = Object(vue__WEBPACK_IMPORTED_MODULE_0__["resolveComponent"])("router-view");
 
-  return Object(vue__WEBPACK_IMPORTED_MODULE_0__["openBlock"])(), Object(vue__WEBPACK_IMPORTED_MODULE_0__["createBlock"])("div", null, [Object(vue__WEBPACK_IMPORTED_MODULE_0__["createVNode"])(_component_counter)]);
+  return Object(vue__WEBPACK_IMPORTED_MODULE_0__["openBlock"])(), Object(vue__WEBPACK_IMPORTED_MODULE_0__["createBlock"])("div", null, [Object(vue__WEBPACK_IMPORTED_MODULE_0__["createVNode"])(_component_router_view)]);
 }
 
 /***/ }),
@@ -178,9 +211,9 @@ function render(_ctx, _cache) {
 
 /***/ }),
 
-/***/ "./.framework/server/entry.js":
+/***/ "./.framework/entry.server.js":
 /*!************************************!*\
-  !*** ./.framework/server/entry.js ***!
+  !*** ./.framework/entry.server.js ***!
   \************************************/
 /*! exports provided: createApp */
 /*! all exports used */
@@ -191,12 +224,41 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createApp", function() { return createApp; });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "vue");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _src_app_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../src/app.vue */ "./src/app.vue");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "vue-router");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_router__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _src_app_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../src/app.vue */ "./src/app.vue");
+
+ // import routes from '../routes.json'
 
 
-function createApp() {
-  return Object(vue__WEBPACK_IMPORTED_MODULE_0__["createSSRApp"])(_src_app_vue__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"]);
-}
+async function createApp(context) {
+  const app = Object(vue__WEBPACK_IMPORTED_MODULE_0__["createSSRApp"])(_src_app_vue__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"]);
+  const router = Object(vue_router__WEBPACK_IMPORTED_MODULE_1__["createRouter"])({
+    history: Object(vue_router__WEBPACK_IMPORTED_MODULE_1__["createMemoryHistory"])(),
+    routes: [{
+      component: () => __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./src/pages/index.vue */ "./src/pages/index.vue")),
+      componentPath: '/Users/Guillermo/Documents/projects/xarples/vue-framework/examples/minimal/src/pages/index.vue',
+      name: 'root',
+      path: '/'
+    }]
+  });
+  router.push(context.req.url);
+  await router.isReady();
+  app.use(router);
+  return app;
+} // function getRoutes(route) {
+//   const _route = JSON.parse(JSON.stringify(route))
+//   if (route.children) {
+//     const children = route.children.map((child) => {
+//       const childRoute = getRoutes(child)
+//       childRoute.component = () => import(childRoute.componentPath)
+//       return childRoute
+//     })
+//     _route.children = children
+//   }
+//   route.component = () => import(route.componentPath)
+//   return _route
+// }
 
 /***/ }),
 
@@ -315,6 +377,18 @@ _Counter_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__[/* default */ 
 /***/ (function(module, exports) {
 
 module.exports = require("vue");
+
+/***/ }),
+
+/***/ "vue-router":
+/*!*****************************!*\
+  !*** external "vue-router" ***!
+  \*****************************/
+/*! no static exports found */
+/*! exports used: createMemoryHistory, createRouter */
+/***/ (function(module, exports) {
+
+module.exports = require("vue-router");
 
 /***/ })
 

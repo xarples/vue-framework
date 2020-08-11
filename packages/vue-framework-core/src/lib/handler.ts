@@ -5,7 +5,7 @@ import renderBaseHTML from './renderBaseHTML'
 
 const workingDirPath = process.cwd()
 const staticPath = path.resolve(workingDirPath)
-const distPath = path.resolve(workingDirPath, '.framework', 'server')
+const distPath = path.resolve(workingDirPath, '.framework')
 const serverBundledPath = path.resolve(distPath, 'server.js')
 const { createApp } = require(serverBundledPath)
 
@@ -18,7 +18,12 @@ export default function handler() {
       return serveStatic(staticPath)(req, res, next)
     }
 
-    const vueApp = await createApp()
+    const context = {
+      req,
+      res,
+    }
+
+    const vueApp = await createApp(context)
     const content = await renderToString(vueApp)
     const html = await renderBaseHTML(content)
 

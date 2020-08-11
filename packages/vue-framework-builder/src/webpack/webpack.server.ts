@@ -6,18 +6,8 @@ import nodeExternals from 'webpack-node-externals'
 import commonConfig from './webpack.common'
 
 const workingDirPath = process.cwd()
-const srcDirPath = path.resolve(workingDirPath, 'src')
 const distDirPath = path.resolve(workingDirPath, '.framework')
-const appDistPath = path.resolve(distDirPath, 'app.js')
-const entryPath = path.resolve(distDirPath, 'server', 'entry.js')
-const vueFrameworkCoreNodeModulesPath = path.resolve(
-  __dirname,
-  '..',
-  '..',
-  '..',
-  'vue-framework-core',
-  'node_modules'
-)
+const entryPath = path.resolve(distDirPath, 'entry.server.js')
 
 const config = merge(commonConfig, {
   target: 'node',
@@ -27,8 +17,9 @@ const config = merge(commonConfig, {
   },
   output: {
     path: distDirPath,
-    filename: 'server/[name].js',
+    filename: '[name].js',
     libraryTarget: 'commonjs2',
+    publicPath: '/.framework/',
   },
   module: {
     rules: [
@@ -39,15 +30,15 @@ const config = merge(commonConfig, {
     ],
   },
   externals: [
+    'vue-router',
     {
       vue: 'vue',
     },
-    nodeExternals(),
-    // nodeExternals({
-    //   // modulesDir: vueFrameworkCoreNodeModulesPath,
-    //   // @ts-ignore
-    //   allowlist: [/\.css$/],
-    // }),
+    nodeExternals({
+      whitelist: [/\.css$/],
+      // @ts-ignore
+      allowlist: [/\.css$/],
+    }),
   ],
   plugins: [
     new webpack.DefinePlugin({

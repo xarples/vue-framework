@@ -8,8 +8,8 @@ export default async function generate() {
   const currentDirPath = __dirname
   const templatesDirPath = path.resolve(currentDirPath, '..', '..', 'templates')
   const distDirPath = path.resolve(workDirPath, '.framework')
-  const clientDistDirPath = path.resolve(distDirPath, 'client')
-  const serverDistDirPath = path.resolve(distDirPath, 'server')
+  const clientDistDirPath = path.resolve(distDirPath)
+  const serverDistDirPath = path.resolve(distDirPath)
   const clientTemplatePath = path.resolve(templatesDirPath, entryClientName)
   const serverTemplatePath = path.resolve(templatesDirPath, entryServerName)
   const clientEntryPath = path.resolve(clientDistDirPath, entryClientName)
@@ -21,7 +21,7 @@ export default async function generate() {
     const file = await fs.promises.readFile(clientTemplatePath)
 
     await fs.promises.writeFile(
-      path.resolve(clientDistDirPath, 'entry.js'),
+      path.resolve(clientDistDirPath, entryClientName),
       file.toString('utf8')
     )
   }
@@ -32,7 +32,7 @@ export default async function generate() {
     const file = await fs.promises.readFile(serverTemplatePath)
 
     await fs.promises.writeFile(
-      path.resolve(serverDistDirPath, 'entry.js'),
+      path.resolve(serverDistDirPath, entryServerName),
       file.toString('utf8')
     )
   }

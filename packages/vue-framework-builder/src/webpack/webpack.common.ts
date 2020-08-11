@@ -3,25 +3,20 @@ import webpack, { Configuration } from 'webpack'
 import { VueLoaderPlugin } from 'vue-loader'
 
 export const isProd = process.env.NODE_ENV === 'production'
-
 const workDirPath = process.cwd()
-const rootNodeModules = path.resolve(workDirPath, '..', '..', 'node_modules')
-const vueFrameworkCoreNodeModulesPath = path.resolve(
-  __dirname,
+const workingDirectoryNodeModules = path.resolve(
+  workDirPath,
   '..',
   '..',
-  '..',
-  'vue-framework-core',
   'node_modules'
 )
-
 const cliNodeModulesPath = path.resolve(__dirname, '..', '..', 'node_modules')
 
 const config: Configuration = {
   mode: isProd ? 'production' : 'development',
   resolve: {
     extensions: ['.js', '.vue', '.json'],
-    modules: ['node_modules', rootNodeModules],
+    modules: ['node_modules', workingDirectoryNodeModules],
   },
   optimization: {
     usedExports: true,
@@ -51,9 +46,8 @@ const config: Configuration = {
     new webpack.DefinePlugin({
       __VUE_OPTIONS_API__: JSON.stringify(true),
       __VUE_PROD_DEVTOOLS__: JSON.stringify(true),
-      'process.env.VUE_ENV': '"client"',
-      'process.browser': true,
-      'process.server': false,
+      'process.env.COMPONENT':
+        'function component() { return import(this.componentPath) }',
     }),
   ],
 }
