@@ -14,8 +14,22 @@ exports.modules = {
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "vue");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 
+
+const _hoisted_1 = /*#__PURE__*/Object(vue__WEBPACK_IMPORTED_MODULE_0__["createTextVNode"])(" Index ");
+
+const _hoisted_2 = /*#__PURE__*/Object(vue__WEBPACK_IMPORTED_MODULE_0__["createTextVNode"])("Go to users");
+
 function render(_ctx, _cache) {
-  return Object(vue__WEBPACK_IMPORTED_MODULE_0__["openBlock"])(), Object(vue__WEBPACK_IMPORTED_MODULE_0__["createBlock"])("div", null, " Index ");
+  const _component_router_link = Object(vue__WEBPACK_IMPORTED_MODULE_0__["resolveComponent"])("router-link");
+
+  return Object(vue__WEBPACK_IMPORTED_MODULE_0__["openBlock"])(), Object(vue__WEBPACK_IMPORTED_MODULE_0__["createBlock"])("div", null, [_hoisted_1, Object(vue__WEBPACK_IMPORTED_MODULE_0__["createVNode"])("p", null, [Object(vue__WEBPACK_IMPORTED_MODULE_0__["createVNode"])(_component_router_link, {
+    to: {
+      name: 'users/index'
+    }
+  }, {
+    default: Object(vue__WEBPACK_IMPORTED_MODULE_0__["withCtx"])(() => [_hoisted_2]),
+    _: 1
+  })])]);
 }
 
 /***/ }),

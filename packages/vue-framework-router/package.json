@@ -2,11 +2,20 @@
   "name": "@xarples/vue-framework-router",
   "version": "0.0.0",
   "description": "",
-  "main": "lib/index.js",
-  "scripts": {},
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {},
-  "peerDependencies": {}
+  "dependencies": {
+    "vue-router": "^4.0.0-beta.6"
+  },
+  "devDependencies": {
+    "vue": "^3.0.0-rc.5"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0-rc.5"
+  }
 }

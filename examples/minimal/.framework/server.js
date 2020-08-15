@@ -211,6 +211,63 @@ function render(_ctx, _cache) {
 
 /***/ }),
 
+/***/ "../../packages/vue-framework-router/dist/index.js":
+/*!*************************************************************************************************************!*\
+  !*** /Users/Guillermo/Documents/projects/xarples/vue-framework/packages/vue-framework-router/dist/index.js ***!
+  \*************************************************************************************************************/
+/*! no static exports found */
+/*! exports used: createRouter */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.createRouter = void 0;
+
+const vue_router_1 = __webpack_require__(/*! vue-router */ "vue-router");
+
+const isSever = typeof window === 'undefined';
+
+function createRouter(context) {
+  const router = vue_router_1.createRouter({
+    history: !isSever ? vue_router_1.createWebHistory() : vue_router_1.createMemoryHistory(),
+    routes: getRoutes(context)
+  });
+  return router;
+}
+
+exports.createRouter = createRouter;
+
+function getRoutes(requireComponent) {
+  // @ts-ignore
+  // const requireComponent = require.context(
+  //   '../src/pages',
+  //   true,
+  //   /\.vue$/,
+  //   'lazy'
+  // )
+  const routes = requireComponent.keys();
+  return routes.map(route => {
+    const regExp = /^\.\/(.*)\.vue+$/;
+    const routeName = route.replace(regExp, '$1');
+    const routePath = route.replace(regExp, '/$1').replace('/index', '');
+    return {
+      name: routeName,
+      path: routePath,
+      component: () => Promise.resolve(requireComponent(route)).then(getDefault)
+    };
+  });
+}
+
+function getDefault(component) {
+  return component.default || component;
+}
+
+/***/ }),
+
 /***/ "./.framework/entry.server.js":
 /*!************************************!*\
   !*** ./.framework/entry.server.js ***!
@@ -224,41 +281,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createApp", function() { return createApp; });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "vue");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "vue-router");
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_router__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _xarples_vue_framework_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @xarples/vue-framework-router */ "../../packages/vue-framework-router/dist/index.js");
+/* harmony import */ var _xarples_vue_framework_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_xarples_vue_framework_router__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _src_app_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../src/app.vue */ "./src/app.vue");
 
- // import routes from '../routes.json'
 
+
+
+const requireComponent = __webpack_require__("./src/pages lazy recursive \\.vue$");
 
 async function createApp(context) {
+  const router = Object(_xarples_vue_framework_router__WEBPACK_IMPORTED_MODULE_1__["createRouter"])(requireComponent);
   const app = Object(vue__WEBPACK_IMPORTED_MODULE_0__["createSSRApp"])(_src_app_vue__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"]);
-  const router = Object(vue_router__WEBPACK_IMPORTED_MODULE_1__["createRouter"])({
-    history: Object(vue_router__WEBPACK_IMPORTED_MODULE_1__["createMemoryHistory"])(),
-    routes: [{
-      component: () => __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./src/pages/index.vue */ "./src/pages/index.vue")),
-      componentPath: '/Users/Guillermo/Documents/projects/xarples/vue-framework/examples/minimal/src/pages/index.vue',
-      name: 'root',
-      path: '/'
-    }]
-  });
   router.push(context.req.url);
   await router.isReady();
   app.use(router);
   return app;
-} // function getRoutes(route) {
-//   const _route = JSON.parse(JSON.stringify(route))
-//   if (route.children) {
-//     const children = route.children.map((child) => {
-//       const childRoute = getRoutes(child)
-//       childRoute.component = () => import(childRoute.componentPath)
-//       return childRoute
-//     })
-//     _route.children = children
-//   }
-//   route.component = () => import(route.componentPath)
-//   return _route
-// }
+}
 
 /***/ }),
 
@@ -368,12 +407,56 @@ _Counter_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__[/* default */ 
 
 /***/ }),
 
+/***/ "./src/pages lazy recursive \\.vue$":
+/*!*******************************!*\
+  !*** ./src/pages lazy \.vue$ ***!
+  \*******************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./index.vue": [
+		"./src/pages/index.vue",
+		0
+	],
+	"./users/index.vue": [
+		"./src/pages/users/index.vue",
+		1
+	],
+	"./users/me.vue": [
+		"./src/pages/users/me.vue",
+		2
+	]
+};
+function webpackAsyncContext(req) {
+	if(!__webpack_require__.o(map, req)) {
+		return Promise.resolve().then(function() {
+			var e = new Error("Cannot find module '" + req + "'");
+			e.code = 'MODULE_NOT_FOUND';
+			throw e;
+		});
+	}
+
+	var ids = map[req], id = ids[0];
+	return __webpack_require__.e(ids[1]).then(function() {
+		return __webpack_require__(id);
+	});
+}
+webpackAsyncContext.keys = function webpackAsyncContextKeys() {
+	return Object.keys(map);
+};
+webpackAsyncContext.id = "./src/pages lazy recursive \\.vue$";
+module.exports = webpackAsyncContext;
+
+/***/ }),
+
 /***/ "vue":
 /*!**********************!*\
   !*** external "vue" ***!
   \**********************/
 /*! no static exports found */
-/*! exports used: createBlock, createSSRApp, createVNode, openBlock, ref, resolveComponent, toDisplayString */
+/*! exports used: createBlock, createSSRApp, createTextVNode, createVNode, openBlock, ref, resolveComponent, toDisplayString, withCtx */
 /***/ (function(module, exports) {
 
 module.exports = require("vue");
@@ -385,7 +468,7 @@ module.exports = require("vue");
   !*** external "vue-router" ***!
   \*****************************/
 /*! no static exports found */
-/*! exports used: createMemoryHistory, createRouter */
+/*! all exports used */
 /***/ (function(module, exports) {
 
 module.exports = require("vue-router");

@@ -11,8 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "@xarples/vue-framework": "0.0.0",
+    "@xarples/vue-framework-router": "0.0.0",
     "express": "^4.17.1",
-    "vue": "^3.0.0-rc.5",
-    "vue-router": "^4.0.0-beta.6"
+    "vue": "^3.0.0-rc.5"
   }
 }
