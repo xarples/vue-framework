@@ -22,7 +22,7 @@ eval("/* harmony import */ var _components_Counter__WEBPACK_IMPORTED_MODULE_0__ 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"../../node_modules/vue/dist/vue.runtime.esm-bundler.js\");\n\n/* harmony default export */ __webpack_exports__[\"a\"] = ({\n  setup() {\n    const count = Object(vue__WEBPACK_IMPORTED_MODULE_0__[/* ref */ \"n\"])(0);\n\n    const increment = () => count.value++;\n\n    return {\n      count,\n      increment\n    };\n  }\n\n});\n\n//# sourceURL=webpack:///./src/components/Counter.vue?/Users/Guillermo/Documents/projects/xarples/vue-framework/node_modules/babel-loader/lib!/Users/Guillermo/Documents/projects/xarples/vue-framework/node_modules/vue-loader/dist??ref--0");
+eval("/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"../../node_modules/vue/dist/vue.runtime.esm-bundler.js\");\n\n/* harmony default export */ __webpack_exports__[\"a\"] = ({\n  setup() {\n    const count = Object(vue__WEBPACK_IMPORTED_MODULE_0__[/* ref */ \"p\"])(0);\n\n    const increment = () => count.value++;\n\n    return {\n      count,\n      increment\n    };\n  }\n\n});\n\n//# sourceURL=webpack:///./src/components/Counter.vue?/Users/Guillermo/Documents/projects/xarples/vue-framework/node_modules/babel-loader/lib!/Users/Guillermo/Documents/projects/xarples/vue-framework/node_modules/vue-loader/dist??ref--0");
 
 /***/ }),
 
@@ -35,7 +35,7 @@ eval("/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_requ
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"a\", function() { return render; });\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"../../node_modules/vue/dist/vue.runtime.esm-bundler.js\");\n\nfunction render(_ctx, _cache) {\n  const _component_router_view = Object(vue__WEBPACK_IMPORTED_MODULE_0__[/* resolveComponent */ \"o\"])(\"router-view\");\n\n  return Object(vue__WEBPACK_IMPORTED_MODULE_0__[/* openBlock */ \"k\"])(), Object(vue__WEBPACK_IMPORTED_MODULE_0__[/* createBlock */ \"b\"])(\"div\", null, [Object(vue__WEBPACK_IMPORTED_MODULE_0__[/* createVNode */ \"e\"])(_component_router_view)]);\n}\n\n//# sourceURL=webpack:///./src/app.vue?/Users/Guillermo/Documents/projects/xarples/vue-framework/node_modules/babel-loader/lib!/Users/Guillermo/Documents/projects/xarples/vue-framework/node_modules/vue-loader/dist/templateLoader.js??ref--6!/Users/Guillermo/Documents/projects/xarples/vue-framework/node_modules/vue-loader/dist??ref--0");
+eval("/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"a\", function() { return render; });\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"../../node_modules/vue/dist/vue.runtime.esm-bundler.js\");\n\nfunction render(_ctx, _cache) {\n  const _component_router_view = Object(vue__WEBPACK_IMPORTED_MODULE_0__[/* resolveComponent */ \"q\"])(\"router-view\");\n\n  return Object(vue__WEBPACK_IMPORTED_MODULE_0__[/* openBlock */ \"k\"])(), Object(vue__WEBPACK_IMPORTED_MODULE_0__[/* createBlock */ \"b\"])(\"div\", null, [Object(vue__WEBPACK_IMPORTED_MODULE_0__[/* createVNode */ \"e\"])(_component_router_view)]);\n}\n\n//# sourceURL=webpack:///./src/app.vue?/Users/Guillermo/Documents/projects/xarples/vue-framework/node_modules/babel-loader/lib!/Users/Guillermo/Documents/projects/xarples/vue-framework/node_modules/vue-loader/dist/templateLoader.js??ref--6!/Users/Guillermo/Documents/projects/xarples/vue-framework/node_modules/vue-loader/dist??ref--0");
 
 /***/ }),
 
@@ -48,7 +48,7 @@ eval("/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"a\", function() { return render; });\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"../../node_modules/vue/dist/vue.runtime.esm-bundler.js\");\n\nfunction render(_ctx, _cache) {\n  return Object(vue__WEBPACK_IMPORTED_MODULE_0__[/* openBlock */ \"k\"])(), Object(vue__WEBPACK_IMPORTED_MODULE_0__[/* createBlock */ \"b\"])(\"div\", null, [Object(vue__WEBPACK_IMPORTED_MODULE_0__[/* createVNode */ \"e\"])(\"div\", null, \"Count \" + Object(vue__WEBPACK_IMPORTED_MODULE_0__[/* toDisplayString */ \"q\"])(_ctx.count), 1\n  /* TEXT */\n  ), Object(vue__WEBPACK_IMPORTED_MODULE_0__[/* createVNode */ \"e\"])(\"button\", {\n    onClick: _cache[1] || (_cache[1] = (...args) => _ctx.increment(...args))\n  }, \"increment\")]);\n}\n\n//# sourceURL=webpack:///./src/components/Counter.vue?/Users/Guillermo/Documents/projects/xarples/vue-framework/node_modules/babel-loader/lib!/Users/Guillermo/Documents/projects/xarples/vue-framework/node_modules/vue-loader/dist/templateLoader.js??ref--6!/Users/Guillermo/Documents/projects/xarples/vue-framework/node_modules/vue-loader/dist??ref--0");
+eval("/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"a\", function() { return render; });\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"../../node_modules/vue/dist/vue.runtime.esm-bundler.js\");\n\nfunction render(_ctx, _cache) {\n  return Object(vue__WEBPACK_IMPORTED_MODULE_0__[/* openBlock */ \"k\"])(), Object(vue__WEBPACK_IMPORTED_MODULE_0__[/* createBlock */ \"b\"])(\"div\", null, [Object(vue__WEBPACK_IMPORTED_MODULE_0__[/* createVNode */ \"e\"])(\"div\", null, \"Count \" + Object(vue__WEBPACK_IMPORTED_MODULE_0__[/* toDisplayString */ \"s\"])(_ctx.count), 1\n  /* TEXT */\n  ), Object(vue__WEBPACK_IMPORTED_MODULE_0__[/* createVNode */ \"e\"])(\"button\", {\n    onClick: _cache[1] || (_cache[1] = (...args) => _ctx.increment(...args))\n  }, \"increment\")]);\n}\n\n//# sourceURL=webpack:///./src/components/Counter.vue?/Users/Guillermo/Documents/projects/xarples/vue-framework/node_modules/babel-loader/lib!/Users/Guillermo/Documents/projects/xarples/vue-framework/node_modules/vue-loader/dist/templateLoader.js??ref--6!/Users/Guillermo/Documents/projects/xarples/vue-framework/node_modules/vue-loader/dist??ref--0");
 
 /***/ }),
 
@@ -65,16 +65,16 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 
 /***/ }),
 
-/***/ "./.framework/entry.client.js":
-/*!************************************!*\
-  !*** ./.framework/entry.client.js ***!
-  \************************************/
+/***/ "./.framework/client/entry.client.js":
+/*!*******************************************!*\
+  !*** ./.framework/client/entry.client.js ***!
+  \*******************************************/
 /*! no exports provided */
 /*! all exports used */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"../../node_modules/vue/dist/vue.runtime.esm-bundler.js\");\n/* harmony import */ var _xarples_vue_framework_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @xarples/vue-framework-router */ \"../../packages/vue-framework-router/dist/index.js\");\n/* harmony import */ var _xarples_vue_framework_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_xarples_vue_framework_router__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _src_app_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../src/app.vue */ \"./src/app.vue\");\n\n\n\n\nconst requireComponent = __webpack_require__(\"./src/pages lazy recursive \\\\.vue$\");\n\nconst router = Object(_xarples_vue_framework_router__WEBPACK_IMPORTED_MODULE_1__[\"createRouter\"])(requireComponent);\nconst app = Object(vue__WEBPACK_IMPORTED_MODULE_0__[/* createSSRApp */ \"c\"])(_src_app_vue__WEBPACK_IMPORTED_MODULE_2__[/* default */ \"a\"]);\napp.use(router);\nrouter.isReady().then(() => {\n  app.mount('#vue-framework-root');\n});\n\n//# sourceURL=webpack:///./.framework/entry.client.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"../../node_modules/vue/dist/vue.runtime.esm-bundler.js\");\n/* harmony import */ var _xarples_vue_framework_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @xarples/vue-framework-router */ \"../../packages/vue-framework-router/dist/index.js\");\n/* harmony import */ var _xarples_vue_framework_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_xarples_vue_framework_router__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _src_app_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../src/app.vue */ \"./src/app.vue\");\n\n\n\n\nconst requireComponent = __webpack_require__(\"./src/pages lazy recursive \\\\.vue$\");\n\nconst router = Object(_xarples_vue_framework_router__WEBPACK_IMPORTED_MODULE_1__[\"createRouter\"])(requireComponent);\nconst app = Object(vue__WEBPACK_IMPORTED_MODULE_0__[/* createSSRApp */ \"c\"])(_src_app_vue__WEBPACK_IMPORTED_MODULE_2__[/* default */ \"a\"]);\napp.use(router);\nrouter.isReady().then(() => {\n  app.mount('#vue-framework-root');\n});\n\n//# sourceURL=webpack:///./.framework/client/entry.client.js?");
 
 /***/ }),
 
@@ -168,4 +168,4 @@ eval("var map = {\n\t\"./index.vue\": [\n\t\t\"./src/pages/index.vue\",\n\t\t0\n
 
 /***/ })
 
-},[["./.framework/entry.client.js","runtime","vendors"]]]);
+},[["./.framework/client/entry.client.js","runtime","vendors"]]]);

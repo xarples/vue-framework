@@ -1,9 +1,14 @@
 import { createSSRApp } from 'vue'
 import { createRouter } from '@xarples/vue-framework-router'
 
-import App from '../src/app.vue'
+import App from '../../src/app.vue'
 
-const requireComponent = require.context('../src/pages', true, /\.vue$/, 'lazy')
+const requireComponent = require.context(
+  '../../src/pages',
+  true,
+  /\.vue$/,
+  'lazy'
+)
 
 export async function createApp(context) {
   const router = createRouter(requireComponent)

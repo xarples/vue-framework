@@ -6,7 +6,7 @@ module.exports =
 /******/ 	// object to store loaded chunks
 /******/ 	// "0" means "already loaded"
 /******/ 	var installedChunks = {
-/******/ 		"server": 0
+/******/ 		"main": 0
 /******/ 	};
 /******/
 /******/ 	// The require function
@@ -104,7 +104,7 @@ module.exports =
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/.framework/";
+/******/ 	__webpack_require__.p = "/.framework/server/";
 /******/
 /******/ 	// uncaught error handler for webpack runtime
 /******/ 	__webpack_require__.oe = function(err) {
@@ -115,7 +115,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./.framework/entry.server.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./.framework/server/entry.server.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -268,10 +268,10 @@ function getDefault(component) {
 
 /***/ }),
 
-/***/ "./.framework/entry.server.js":
-/*!************************************!*\
-  !*** ./.framework/entry.server.js ***!
-  \************************************/
+/***/ "./.framework/server/entry.server.js":
+/*!*******************************************!*\
+  !*** ./.framework/server/entry.server.js ***!
+  \*******************************************/
 /*! exports provided: createApp */
 /*! all exports used */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -283,7 +283,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _xarples_vue_framework_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @xarples/vue-framework-router */ "../../packages/vue-framework-router/dist/index.js");
 /* harmony import */ var _xarples_vue_framework_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_xarples_vue_framework_router__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _src_app_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../src/app.vue */ "./src/app.vue");
+/* harmony import */ var _src_app_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../src/app.vue */ "./src/app.vue");
 
 
 
@@ -456,7 +456,7 @@ module.exports = webpackAsyncContext;
   !*** external "vue" ***!
   \**********************/
 /*! no static exports found */
-/*! exports used: createBlock, createSSRApp, createTextVNode, createVNode, openBlock, ref, resolveComponent, toDisplayString, withCtx */
+/*! exports used: createBlock, createSSRApp, createTextVNode, createVNode, openBlock, popScopeId, pushScopeId, ref, resolveComponent, toDisplayString, withScopeId */
 /***/ (function(module, exports) {
 
 module.exports = require("vue");
@@ -476,4 +476,4 @@ module.exports = require("vue-router");
 /***/ })
 
 /******/ });
-//# sourceMappingURL=server.js.map
+//# sourceMappingURL=main.js.map

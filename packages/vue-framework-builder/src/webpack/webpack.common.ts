@@ -1,6 +1,7 @@
 import path from 'path'
 import webpack, { Configuration } from 'webpack'
 import { VueLoaderPlugin } from 'vue-loader'
+import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 
 export const isProd = process.env.NODE_ENV === 'production'
 const workDirPath = process.cwd()
@@ -42,6 +43,7 @@ const config: Configuration = {
     ],
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new VueLoaderPlugin(),
     new webpack.DefinePlugin({
       __VUE_OPTIONS_API__: JSON.stringify(true),

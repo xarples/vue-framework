@@ -1,0 +1,16 @@
+{
+  "initial": [
+    "/.framework/server/main.js",
+    "/.framework/server/main.js.map"
+  ],
+  "chunks": [
+    "/.framework/server/0.js",
+    "/.framework/server/0.js.map",
+    "/.framework/server/1.js",
+    "/.framework/server/1.js.map",
+    "/.framework/server/2.js",
+    "/.framework/server/2.js.map",
+    "/.framework/server/main.js",
+    "/.framework/server/main.js.map"
+  ]
+}

@@ -2,18 +2,19 @@ import path from 'path'
 import webpack from 'webpack'
 import { merge } from 'webpack-merge'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import ManifestPlugin from 'webpack-manifest-plugin'
 
 import commonConfig, { isProd } from './webpack.common'
 
 const workingDirPath = process.cwd()
-const distDirPath = path.resolve(workingDirPath, '.framework')
+const distDirPath = path.resolve(workingDirPath, '.framework', 'client')
 const entryPath = path.resolve(distDirPath, 'entry.client.js')
 
 const config = merge(commonConfig, {
   entry: entryPath,
   output: {
     path: distDirPath,
-    publicPath: '/.framework/',
+    publicPath: '/.framework/client/',
     filename: isProd ? 'js/[name].[chunkhash].js' : 'js/[name].js',
     chunkFilename: isProd ? 'js/[name].[chunkhash].js' : 'js/[name].js',
   },
@@ -48,6 +49,24 @@ const config = merge(commonConfig, {
     },
   },
   plugins: [
+    new ManifestPlugin({
+      fileName: 'client-manifest.json',
+      generate(seed, files, entrypoints) {
+        const initial = files
+          .filter((file) => file.isInitial)
+          .map((file) => file.path)
+
+        const chunks = files
+          .filter((file) => file.isChunk)
+          .map((file) => file.path)
+
+        return {
+          initial,
+          chunks,
+        }
+      },
+    }),
+
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(
         process.env.NODE_ENV || 'development'
@@ -58,6 +77,7 @@ const config = merge(commonConfig, {
     }),
     new MiniCssExtractPlugin({
       filename: isProd ? 'css/[name].[contenthash].css' : 'css/[name].css',
+      // filename: isProd ? 'css/[name].[contenthash].css' : 'css/[name].css',
     }),
   ],
 })

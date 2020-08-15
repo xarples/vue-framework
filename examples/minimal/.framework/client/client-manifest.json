@@ -1,0 +1,18 @@
+{
+  "initial": [
+    "/.framework/client/js/main.js",
+    "/.framework/client/js/runtime.js",
+    "/.framework/client/js/vendors.js"
+  ],
+  "chunks": [
+    "/.framework/client/css/0.css",
+    "/.framework/client/js/0.js",
+    "/.framework/client/css/1.css",
+    "/.framework/client/js/1.js",
+    "/.framework/client/css/2.css",
+    "/.framework/client/js/2.js",
+    "/.framework/client/js/main.js",
+    "/.framework/client/js/runtime.js",
+    "/.framework/client/js/vendors.js"
+  ]
+}

@@ -21,7 +21,7 @@ export default async function generate() {
     const file = await fs.promises.readFile(clientTemplatePath)
 
     await fs.promises.writeFile(
-      path.resolve(clientDistDirPath, entryClientName),
+      path.resolve(clientDistDirPath, 'client', entryClientName),
       file.toString('utf8')
     )
   }
@@ -32,7 +32,7 @@ export default async function generate() {
     const file = await fs.promises.readFile(serverTemplatePath)
 
     await fs.promises.writeFile(
-      path.resolve(serverDistDirPath, entryServerName),
+      path.resolve(serverDistDirPath, 'server', entryServerName),
       file.toString('utf8')
     )
   }

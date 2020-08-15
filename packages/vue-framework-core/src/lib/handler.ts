@@ -5,16 +5,13 @@ import renderBaseHTML from './renderBaseHTML'
 
 const workingDirPath = process.cwd()
 const staticPath = path.resolve(workingDirPath)
-const distPath = path.resolve(workingDirPath, '.framework')
-const serverBundledPath = path.resolve(distPath, 'server.js')
+const distPath = path.resolve(workingDirPath, '.framework', 'server')
+const serverBundledPath = path.resolve(distPath, 'main.js')
 const { createApp } = require(serverBundledPath)
 
 export default function handler() {
   return async function _handler(req: any, res: any, next: any) {
-    if (
-      req.originalUrl.includes('/.framework/') ||
-      req.originalUrl.includes('/favicon.ico')
-    ) {
+    if (req.originalUrl.match(/.css|js|ico/)) {
       return serveStatic(staticPath)(req, res, next)
     }
 
