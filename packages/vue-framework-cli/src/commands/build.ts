@@ -13,7 +13,6 @@ export default class Build extends Command {
 
   async run() {
     await generator.generate()
-    // await builder.buildRoutes()
     await builder.buildClient()
     await builder.buildServer()
   }
